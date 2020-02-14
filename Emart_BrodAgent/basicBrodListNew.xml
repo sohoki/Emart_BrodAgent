@@ -1,0 +1,61 @@
+<?xml version="1.0" standalone="yes"?>
+<dataset>
+  <fileList> 
+    <file_name>FILE_000000000004999.mp3</file_name>
+    <strartTime>0900</strartTime>
+    <endTime>1000</endTime>
+    <groupTimeGubun>TIME_INPUT_1</groupTimeGubun>
+    <playCnt>0</playCnt>
+  </fileList>
+  <fileList>
+    <file_name>FILE_000000000005000.mp3</file_name>
+    <strartTime>0900</strartTime>
+    <endTime>1000</endTime>
+    <groupTimeGubun>TIME_INPUT_1</groupTimeGubun>
+    <playCnt>0</playCnt>
+  </fileList>
+  <fileList>
+    <file_name>FILE_000000000005001.mp3</file_name>
+    <strartTime>0900</strartTime>
+    <endTime>1000</endTime>
+    <groupTimeGubun>TIME_INPUT_1</groupTimeGubun>
+    <playCnt>0</playCnt>
+  </fileList>
+  <fileList>
+    <file_name>FILE_000000000005002.mp3</file_name>
+    <strartTime>0900</strartTime>
+    <endTime>1000</endTime>
+    <groupTimeGubun>TIME_INPUT_1</groupTimeGubun>
+    <playCnt>0</playCnt>
+  </fileList>
+
+  <fileList> 
+    <file_name>FILE_100000000004999.mp3</file_name>
+    <strartTime>0000</strartTime>
+    <endTime>2359</endTime>
+    <groupTimeGubun>TIME_INPUT_2</groupTimeGubun>
+    <playCnt>0</playCnt>
+  </fileList>
+  <fileList>
+    <file_name>FILE_100000000005000.mp3</file_name>
+    <strartTime>0000</strartTime>
+    <endTime>2359</endTime>
+    <groupTimeGubun>TIME_INPUT_2</groupTimeGubun>
+    <playCnt>0</playCnt>
+  </fileList>
+  <fileList>
+    <file_name>FILE_100000000005001.mp3</file_name>
+    <strartTime>0000</strartTime>
+    <endTime>2359</endTime>
+    <groupTimeGubun>TIME_INPUT_2</groupTimeGubun>
+    <playCnt>0</playCnt>
+  </fileList>
+  <fileList>
+    <file_name>FILE_100000000005002.mp3</file_name>
+    <strartTime>0000</strartTime>
+    <endTime>2359</endTime>
+    <groupTimeGubun>TIME_INPUT_2</groupTimeGubun>
+    <playCnt>0</playCnt>
+  </fileList>
+
+</dataset>
