@@ -1131,7 +1131,7 @@ namespace Emart_BrodAgent
                 if (util.GetRegistry("download").Equals("B"))
                 {
                     
-
+                    
 
                     //brodMessage = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe16), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
                     brodMessage = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe19), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
