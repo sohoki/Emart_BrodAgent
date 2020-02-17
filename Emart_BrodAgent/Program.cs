@@ -4,9 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using sohoUniLib;
+using System.Net.NetworkInformation;
 
 namespace Emart_BrodAgent
 {
+   
     static class Program
     {
         /// <summary>
@@ -21,7 +24,8 @@ namespace Emart_BrodAgent
 
             string mtxNmae = "A0C147E3-323E-40E9-B011-712570E02D6A";
 
-            
+
+           
             bool bnew;
             Mutex mutex = new Mutex(true, mtxNmae, out bnew);
             if (bnew)
@@ -38,8 +42,11 @@ namespace Emart_BrodAgent
             }
 
         }
-        
+
     }
+    
+   
+
     
     
 }

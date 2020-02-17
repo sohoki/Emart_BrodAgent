@@ -180,6 +180,9 @@ namespace sohoUniLib
                     case "SP_BRODSTATE_NEW":
                         _returlMessage = json["result"]["BROD_CNT"].ToString() + "/" + json["result"]["ORD_CNT"].ToString() + "/" + json["result"]["MSG_CNT"].ToString() + "/" + json["result"]["BASIC_CNT"].ToString();
                         break;
+                    case "SP_BRODSTATE_NEW_VERSION":
+                        _returlMessage = json["result"]["BROD_CNT"].ToString() + "/" + json["result"]["ORD_CNT"].ToString() + "/" + json["result"]["MSG_CNT"].ToString() + "/" + json["result"]["BASIC_CNT"].ToString() + "/" + json["result"]["VERSION_INFO"].ToString();
+                        break;
                     case "SP_BRODSTATE":
                         _returlMessage = json["result"]["BROD_CNT"].ToString() + "/" + json["result"]["ORD_CNT"].ToString() + "/" + json["result"]["MSG_CNT"].ToString();
                         break;

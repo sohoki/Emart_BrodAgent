@@ -47,7 +47,6 @@ namespace Emart_BrodAgent
         //신규
         public string send_path = System.Environment.CurrentDirectory + "\\snd\\";
         public string send_pathOld = System.Environment.CurrentDirectory + "\\snd_Old\\";
-
         public string default_path = System.Environment.CurrentDirectory + "\\basic_music\\";
 
         public int timeCnt = 1;
@@ -77,13 +76,7 @@ namespace Emart_BrodAgent
             }
             else
                 trackBar_info.Value = sohoUniLib.SoundUtil.GetSoundVolume();
-
-            //List < WindowInfo.hddInfo > dirveInfos = WindowInfo.comHddInfo();
-            //foreach (WindowInfo.hddInfo info in dirveInfos )
-            //{
-            //    Console.WriteLine(info.Drive + ":" + info.Volume_label + ":" + info.File_type + ":" + info.TotalFreeSpace + ":" + info.totalSize);
-            //}
-
+            
             if (util.GetRegistry("license_info").Equals(""))
             {
                 agent_setting();
@@ -95,9 +88,6 @@ namespace Emart_BrodAgent
                 didinfo.didMac = util.GetRegistry("license_info");
                 orderCheck();
             }
-            //string brodMessage = "{'command_type':'SP_BASICSCHLST_NEWFILEINFO','FILEINFO':[{'STREFILENM':'FILE_000000000005316.mp3','ORIGNL_FILE_NM':'백아연 이럴거면 그러지말지 (feat. Young K) 20.02.10 20.02.17','FILESTRECOURS':'/202002/'},{'STREFILENM':'FILE_000000000005317.mp3','ORIGNL_FILE_NM':'버스커 버스커 사랑은 타이밍 20.02.10 20.02.17','FILESTRECOURS':'/202002/'},{'STREFILENM':'FILE_000000000005318.mp3','ORIGNL_FILE_NM':'볼빨간사춘기 별 보러 갈래 20.02.10 20.02.17','FILESTRECOURS':'/202002/'},{'STREFILENM':'FILE_000000000005319.mp3','ORIGNL_FILE_NM':'아이유 스물셋 20.02.10 20.02.17','FILESTRECOURS':'/202002/'},{'STREFILENM':'FILE_000000000005320.mp3','ORIGNL_FILE_NM':'에이오에이 짧은 치마 (Miniskirt) 20.02.10 20.02.17','FILESTRECOURS':'/202002/'},{'STREFILENM':'FILE_000000000005323.mp3','ORIGNL_FILE_NM':'TLC_It's Sunny','FILESTRECOURS':'/202002/'}]}";
-            //jsonArrayList(brodMessage, "FILEINFO");
-            //sendPlayInfo();
         }
         
         private bool sendPlayInfo()
@@ -346,6 +336,44 @@ namespace Emart_BrodAgent
                 lbl_agentInfo.Text = "스케줄 에러:" + e.ToString();
             }
         }
+        private void server_stateCheck()
+        {
+            try
+            {
+                //서버 접속이 디면 
+                if (sohoUniLib.NetWorkClass.UrlConnectionValidation(util.GetRegistry("server_url")) == true)
+                {
+                    string returnString = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe01), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
+
+                    string[] didState = sohoUniLib.ServerComm_json.jsonResult(returnString).Split('/');
+                }
+                else
+                {
+
+                    util.setLogFile("서버 접속 안됨");
+
+                    if (utilXml.xmlNodeCount(xml_path + agentConstInfo.xmlBrodFileName, "/dataset/brodList") > 0)
+                    {
+                        lbl_agentInfo.Text = "서버 접속 애러. \r\n기존 방송으로 재생.";
+                        lbl_agentInfo.Size = new Size(250, 50);
+                        pnl_loading.Visible = false;
+                        //brodSoundPlayList();
+
+                    }
+                    else
+                    {
+                        //관리자에게 push 메세지 보내기 
+                        lbl_agentInfo.Text = "서버 접속 애러. \r\n네트워크를 확인해 주세요.";
+                        lbl_agentInfo.Size = new Size(250, 50);
+                        pnl_loading.Visible = false;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
         //전문 전송 
         private void server_dateCheck()
         {
@@ -379,6 +407,10 @@ namespace Emart_BrodAgent
                     {
                         brodOrder();
                     }
+
+                    // 신규 업데이트 확인 구문 추가
+                   
+                    
 
                     // 일반 음원만 다운 받을떄 
                     //if (Convert.ToInt32(didState[0].ToString()) > 0)
@@ -1015,6 +1047,8 @@ namespace Emart_BrodAgent
                     sohoUniLib.uniUtil.SetRegistry("did_Interval", didinfo.didInterval);
                     sohoUniLib.uniUtil.SetRegistry("server_url", txt_ServerIp.Text);
                     sohoUniLib.uniUtil.SetRegistry("sound_volume", Convert.ToString(trackBar_info.Value));
+                    //프로그램 버전확인 
+
 
                     gbSettingInfo.Visible = false;
                     //toTray();

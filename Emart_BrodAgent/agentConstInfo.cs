@@ -49,6 +49,8 @@ namespace Emart_BrodAgent
         public const string tel_Const01 = "DIDTYPE01";
 
         public const string xmlMessageTyepe01 = "SP_BRODSTATE_NEW";
+        //신규 버저 체크 구문 
+        public const string xmlMessageTyepe01_1 = "SP_BRODSTATE_NEW_VERSION";
         //public const string xmlMessageTyepe01 = "SP_BRODSTATE";
         public const string xmlMessageTyepe02 = "SP_DIDAUTH";
         //public const string xmlMessageTyepe03 = "SP_BRODSCH";

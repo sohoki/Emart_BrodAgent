@@ -1159,11 +1159,31 @@ namespace sohoUniLib
             }
             
         }
+        public static string GetRegistryS(String _key)
+        {
+            try
+            {
+                Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE");
+                string rstValue = rk.OpenSubKey("agent_info").GetValue(_key).ToString();
+                rk.Close();
+                return DecryptString(rstValue);
+            }
+            catch (NullReferenceException e1)
+            {
+                return "";
+            }
+            catch (Exception ex)
+            {
+                setLogFileS("GetRegistry error:" + _key + ":" + ex.ToString());
+                return "";
+            }
+
+        }
         /// <summary>
         /// 데스크탑 
         /// </summary>
         /// <param name="_gubun"></param>
-        
+
         public static string DecryptString(string Message)
         {
             byte[] Results;
