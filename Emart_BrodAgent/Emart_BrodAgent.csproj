@@ -81,7 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="agentConstInfo.cs" />
-    <Compile Include="agent_info.cs" />
     <Compile Include="emart_agent.cs">
       <SubType>Form</SubType>
     </Compile>
