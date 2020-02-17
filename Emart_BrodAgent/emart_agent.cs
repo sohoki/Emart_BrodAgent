@@ -336,44 +336,6 @@ namespace Emart_BrodAgent
                 lbl_agentInfo.Text = "스케줄 에러:" + e.ToString();
             }
         }
-        private void server_stateCheck()
-        {
-            try
-            {
-                //서버 접속이 디면 
-                if (sohoUniLib.NetWorkClass.UrlConnectionValidation(util.GetRegistry("server_url")) == true)
-                {
-                    string returnString = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe01), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
-
-                    string[] didState = sohoUniLib.ServerComm_json.jsonResult(returnString).Split('/');
-                }
-                else
-                {
-
-                    util.setLogFile("서버 접속 안됨");
-
-                    if (utilXml.xmlNodeCount(xml_path + agentConstInfo.xmlBrodFileName, "/dataset/brodList") > 0)
-                    {
-                        lbl_agentInfo.Text = "서버 접속 애러. \r\n기존 방송으로 재생.";
-                        lbl_agentInfo.Size = new Size(250, 50);
-                        pnl_loading.Visible = false;
-                        //brodSoundPlayList();
-
-                    }
-                    else
-                    {
-                        //관리자에게 push 메세지 보내기 
-                        lbl_agentInfo.Text = "서버 접속 애러. \r\n네트워크를 확인해 주세요.";
-                        lbl_agentInfo.Size = new Size(250, 50);
-                        pnl_loading.Visible = false;
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-
-            }
-        }
         //전문 전송 
         private void server_dateCheck()
         {

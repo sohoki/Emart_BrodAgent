@@ -50,6 +50,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="didConstInfo.cs" />
     <Compile Include="FCMPushNotification.cs" />
     <Compile Include="imageUtil.cs" />
     <Compile Include="NetWorkClass.cs" />

@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-
-
-namespace Emart_BrodAgent
+namespace sohoUniLib
 {
-    class agentConstInfo
+    public static class didConstInfo
     {
         public const string auth_resultOK = "인증에 성공 하셨습니다.";
         public const string auth_resultFasleF = "지문 인증에 실패 하셨습니다. ";
@@ -30,12 +27,12 @@ namespace Emart_BrodAgent
 
 
         public const string auth_ErrorMessage1 = "서버 IP를 입력해 주세요.";
-        public const string auth_ErrorMessage2 = "인증 디바이스를 입력해 주세요.";        
+        public const string auth_ErrorMessage2 = "인증 디바이스를 입력해 주세요.";
         public const string auth_ErrorMessage4 = "서버 통신 주기를 입력해 주세요(분간격).";
         public const string auth_ErrorMessage5 = "맥 주소를 선택해 주세요.";
         public const string auth_SaveInfo = "설정이 저장하시겠습니까?.";
         public const string auth_SaveInfoRefuse = "초기 설정을 다시 해 주세요.";
-        
+
 
         public const string reg_path = "SOFTWARE\\atensys_info";
         public const string save_info = "설정값 저장";
@@ -58,7 +55,7 @@ namespace Emart_BrodAgent
         //public const string xmlMessageTyepe03 = "SP_BRODSCH";
         public const string xmlMessageTyepe03 = "SP_BRODSCHNEW";
         public const string xmlMessageTyepe04 = "SP_BRODSCHFILELST";
-        public const string xmlMessageTyepe05 = "SP_BRODSCHLST";        
+        public const string xmlMessageTyepe05 = "SP_BRODSCHLST";
         public const string xmlMessageTyepe06 = "SP_BRODDOWNCHECK";
         public const string xmlMessageTyepe07 = "SP_ORDERLST";
         public const string xmlMessageTyepe08 = "SP_DIDREBOOT";
@@ -79,7 +76,7 @@ namespace Emart_BrodAgent
         public const string xmlMessageTyepe20 = "SP_BASICPLAYUPDATE";
 
 
-        
+
         public const string xmlPlayXmlInfo = "playFile";
 
 
@@ -105,6 +102,5 @@ namespace Emart_BrodAgent
                                     + "   <filePlayList>\r\n"
                                     + "   </filePlayList>\r\n"
                                     + "</dataset>\r\n";
-
     }
 }

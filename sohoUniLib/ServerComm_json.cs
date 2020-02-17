@@ -320,6 +320,7 @@ namespace sohoUniLib
         public string conNextSeq { get; set; }
         public string basicCode { get; set; }
         public string conScreen { get; set; }
+        public string didVersion { get; set; }
             
 
     }
