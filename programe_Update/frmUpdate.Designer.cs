@@ -30,17 +30,18 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lv_UpdateInfo = new System.Windows.Forms.ListView();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.pbDownload = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_UpdateVersion = new System.Windows.Forms.Label();
             this.lbl_Version = new System.Windows.Forms.Label();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lv_UpdateInfo);
-            this.groupBox1.Controls.Add(this.progressBar1);
+            this.groupBox1.Controls.Add(this.pbDownload);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lbl_UpdateVersion);
             this.groupBox1.Controls.Add(this.lbl_Version);
@@ -61,12 +62,12 @@
             this.lv_UpdateInfo.TabIndex = 4;
             this.lv_UpdateInfo.UseCompatibleStateImageBehavior = false;
             // 
-            // progressBar1
+            // pbDownload
             // 
-            this.progressBar1.Location = new System.Drawing.Point(117, 52);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(310, 23);
-            this.progressBar1.TabIndex = 3;
+            this.pbDownload.Location = new System.Drawing.Point(117, 52);
+            this.pbDownload.Name = "pbDownload";
+            this.pbDownload.Size = new System.Drawing.Size(310, 23);
+            this.pbDownload.TabIndex = 3;
             // 
             // label1
             // 
@@ -95,6 +96,12 @@
             this.lbl_Version.TabIndex = 0;
             this.lbl_Version.Text = "프로그램 버전:";
             // 
+            // backgroundWorker
+            // 
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
+            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
+            // 
             // frmUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -118,7 +125,8 @@
         private System.Windows.Forms.Label lbl_Version;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView lv_UpdateInfo;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar pbDownload;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
     }
 }
 

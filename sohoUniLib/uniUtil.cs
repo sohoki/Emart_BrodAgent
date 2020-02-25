@@ -803,7 +803,7 @@ namespace sohoUniLib
             }
             catch(Exception e)
             {
-                setLogFileS("webFileDownload error:" + e.ToString());
+                setLogFileS("webFileDownload error:" + e.ToString() + "ERROR FILE:" + _fileNm);
                 return false;
             }
             

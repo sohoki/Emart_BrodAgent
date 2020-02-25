@@ -45,9 +45,19 @@ namespace sohoUniLib
                 }
                 XmlDoc.Save(_filePath);
             }
+            catch(IOException e1)
+            {
+                util.setLogFile("delNodeAll error:" + e.ToString());
+                string xmlText = "<?xml version=\"1.0\" standalone=\"yes\"?>\r\n"
+                                    + "<dataset>\r\n"
+                                    + "</dataset>\r\n";
+                //파일 생성
+                util.fileCreate(_filePath, _filePath.Substring(_filePath.LastIndexOf("\\") + 1), xmlText);
+            }
             catch(Exception e)
             {
                 util.setLogFile("delNodeAll error:" + e.ToString());
+              
             }
             
             XmlDoc = null;

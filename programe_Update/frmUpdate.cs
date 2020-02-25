@@ -36,7 +36,6 @@ namespace programe_Update
         private void frmUpdate_Load(object sender, EventArgs e)
         {
             NetworkChange.NetworkAvailabilityChanged += NetworkChange_NetworkAvailabilityChanged;
-
         }
 
         private void NetworkChange_NetworkAvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
@@ -64,6 +63,9 @@ namespace programe_Update
                     //버전 확인
                     if (didState[4].ToString().Equals(util.GetRegistry("version")) || string.IsNullOrEmpty(util.GetRegistry("version")))
                     {
+                        //프로그램 다운로드 목록 만들기
+
+                        //프로그램 다운로드 확인
 
                     }
                     else
@@ -90,6 +92,21 @@ namespace programe_Update
             //if ( string.IsNullOrEmpty( util.GetRegistry("version_info")) || 
 
             return versionCheck;
+        }
+
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            pbDownload.Value = e.ProgressPercentage;
         }
     }
 }
