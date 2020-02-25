@@ -47,7 +47,7 @@ namespace sohoUniLib
             }
             catch(IOException e1)
             {
-                util.setLogFile("delNodeAll error:" + e.ToString());
+                util.setLogFile("delNodeAll error:" + e1.ToString());
                 string xmlText = "<?xml version=\"1.0\" standalone=\"yes\"?>\r\n"
                                     + "<dataset>\r\n"
                                     + "</dataset>\r\n";
