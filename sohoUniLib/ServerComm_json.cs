@@ -150,7 +150,10 @@ namespace sohoUniLib
                     case "SP_BASICSCHLST_NEWFILEINFO":
                         _returnMessage = "{\"command_type\":\"SP_BASICSCHLST_NEWFILEINFO\",\"command_data\": [{\"BASIC_CODE\":\"" + did_info.basicCode + "\"}]}";
                         break;
-                        
+                    case "SP_BASICSCHFILELST_INFO":
+                        _returnMessage = "{\"command_type\":\"SP_BASICSCHFILELST_INFO\",\"command_data\": [{\"BASIC_CODE\":\"" + did_info.basicCode + "\"}]}";
+                        break;
+
 
                 }
 

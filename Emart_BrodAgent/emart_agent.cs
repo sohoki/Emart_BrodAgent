@@ -802,7 +802,7 @@ namespace Emart_BrodAgent
         private void Player_MediaError(object pMediaObject)
         {
             util.setLogFile("음원 Player_MediaError:" + pMediaObject.ToString());
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void Player_PlayStateChange(int NewState)
