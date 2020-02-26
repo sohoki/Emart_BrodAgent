@@ -76,7 +76,7 @@ namespace Emart_BrodAgent
             }
             else
                 trackBar_info.Value = sohoUniLib.SoundUtil.GetSoundVolume();
-            
+
             if (util.GetRegistry("license_info").Equals(""))
             {
                 agent_setting();
@@ -88,8 +88,35 @@ namespace Emart_BrodAgent
                 didinfo.didMac = util.GetRegistry("license_info");
                 orderCheck();
             }
+            //jsonT();
         }
-        
+
+        //private void jsonT()
+        //{
+        //    string returnMessage = "{'FILEINFO':[{'STREFILENM':'FILE_000000000000142.mp3','BASIC_STARTTIME':'0000','ATCH_FILE_ID':'FILE_000000000000142','BASIC_ENDTIME':'2359','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_1'},{'STREFILENM':'FILE_000000000000147.mp3','BASIC_STARTTIME':'0000','ATCH_FILE_ID':'FILE_000000000000147','BASIC_ENDTIME':'2359','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_1'},{'STREFILENM':'FILE_000000000000146.mp3','BASIC_STARTTIME':'0000','ATCH_FILE_ID':'FILE_000000000000146','BASIC_ENDTIME':'2359','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_1'},{'STREFILENM':'FILE_000000000000145.mp3','BASIC_STARTTIME':'0000','ATCH_FILE_ID':'FILE_000000000000145','BASIC_ENDTIME':'2359','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_1'},{'STREFILENM':'FILE_000000000000139.mp3','BASIC_STARTTIME':'0000','ATCH_FILE_ID':'FILE_000000000000139','BASIC_ENDTIME':'2359','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_1'},{'STREFILENM':'FILE_000000000000140.mp3','BASIC_STARTTIME':'0000','ATCH_FILE_ID':'FILE_000000000000140','BASIC_ENDTIME':'2359','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_1'},{'STREFILENM':'FILE_000000000000141.mp3','BASIC_STARTTIME':'0000','ATCH_FILE_ID':'FILE_000000000000141','BASIC_ENDTIME':'2359','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_1'},{'STREFILENM':'FILE_000000000000148.mp3','BASIC_STARTTIME':'0000','ATCH_FILE_ID':'FILE_000000000000148','BASIC_ENDTIME':'2359','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_1'},{'STREFILENM':'FILE_000000000000143.mp3','BASIC_STARTTIME':'0000','ATCH_FILE_ID':'FILE_000000000000143','BASIC_ENDTIME':'2359','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_1'},{'STREFILENM':'FILE_000000000000144.mp3','BASIC_STARTTIME':'0000','ATCH_FILE_ID':'FILE_000000000000144','BASIC_ENDTIME':'2359','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_1'},{'STREFILENM':'FILE_000000000000129.mp3','BASIC_STARTTIME':'1500','ATCH_FILE_ID':'FILE_000000000000129','BASIC_ENDTIME':'1600','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_2'},{'STREFILENM':'FILE_000000000000131.mp3','BASIC_STARTTIME':'1500','ATCH_FILE_ID':'FILE_000000000000131','BASIC_ENDTIME':'1600','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_2'},{'STREFILENM':'FILE_000000000000145.mp3','BASIC_STARTTIME':'1600','ATCH_FILE_ID':'FILE_000000000000145','BASIC_ENDTIME':'1700','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_2'},{'STREFILENM':'FILE_000000000000133.mp3','BASIC_STARTTIME':'1600','ATCH_FILE_ID':'FILE_000000000000133','BASIC_ENDTIME':'1700','BASIC_CODE':'BC20013001','FILESTRECOURS':'/202002/','BASIC_TIMEDIV':'TIME_INPUT_2'}],'command_type':'SP_BASICSCHFILELST_INFO', 'result':'O'}";
+        //    //다운로드 완료
+
+        //    JObject json = JObject.Parse(returnMessage);
+        //    string _returlMessage = json["result"].ToString();
+        //    if (_returlMessage.Equals("O"))
+        //    {
+        //        // 기초 음원 편성표 삭제
+        //        utilXml.delNodeAll(xml_path + agentConstInfo.xmlBasicBrodList_New, "fileList");
+        //        //기초음원 편성표 생성 
+        //        DataTable dt = sohoUniLib.ServerComm_json.jsonArrayList(returnMessage, "FILEINFO");
+        //        DataRow[] properIDs = dt.Select("1=1", "");
+        //        for (int i = 0; i < properIDs.Length; i++)
+        //        {
+        //            DataRow temp = properIDs[i];
+        //            if (utilXml.xmlCreateNodeBasicMusic(xml_path + agentConstInfo.xmlBasicBrodList_New, temp["STREFILENM"].ToString(), temp["BASIC_STARTTIME"].ToString(), temp["BASIC_ENDTIME"].ToString(), temp["BASIC_TIMEDIV"].ToString(), Convert.ToString(i), temp["BASIC_CODE"].ToString()) == true)
+        //            {
+
+        //            }
+        //            //편성표 생성 
+        //        }
+        //    }
+        //}
+
         private bool sendPlayInfo()
         {
             
@@ -1218,7 +1245,7 @@ namespace Emart_BrodAgent
             }
             
         }
-
+        
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             //리포트 받기    
@@ -1269,8 +1296,10 @@ namespace Emart_BrodAgent
                     }
                     //returnMessage = sohoUniLib.ServerComm_json.jsonResult(returnMessage);
 
-
-
+                    //여기 부분 수정 들어가야함 
+                    sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe17), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
+                    //다운로드 완료
+                    
                     lbl_agentInfo.Text = _returlMessage.Equals("O") ? "기초  음원 다운로드 완료." : "서버 전송중 문제 발생.";
                     
                 }
