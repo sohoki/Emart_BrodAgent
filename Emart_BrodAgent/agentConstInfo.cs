@@ -77,9 +77,10 @@ namespace Emart_BrodAgent
         public const string xmlMessageTyepe18 = "SP_BASICSCHLST_NEW";
         public const string xmlMessageTyepe19 = "SP_BASICSCHLST_NEWFILEINFO";
         public const string xmlMessageTyepe20 = "SP_BASICPLAYUPDATE";
-
-
+        public const string xmlMessageTyepe21 = "SP_BASICSCHFILELST_INFO";
         
+
+
         public const string xmlPlayXmlInfo = "playFile";
 
 

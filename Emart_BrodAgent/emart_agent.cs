@@ -291,10 +291,8 @@ namespace Emart_BrodAgent
                 string returnString = string.Empty;
 
 
-                //returnString = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe16), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
-
-
-                returnString = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe19), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
+                returnString = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe16), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
+                //returnString = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe19), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
 
                 //basic_mp3삭제
                 //추후 수정 
@@ -1128,8 +1126,8 @@ namespace Emart_BrodAgent
                 {
                     
                     
-                    //brodMessage = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe16), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
-                    brodMessage = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe19), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
+                    brodMessage = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe16), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
+                    //brodMessage = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe19), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
                     utilXml.delNodeAll(xml_path + agentConstInfo.xmlBasicFileList, "fileList");                    
                 }
                 else
@@ -1191,20 +1189,7 @@ namespace Emart_BrodAgent
                             }
                         }
                     }
-                    //if (utilXml.xmlCreateNodeMusic(xml_path + agentConstInfo.xmlFileName, temp["FILESTRECOURS"].ToString(), temp["STREFILENM"].ToString()) == true)
-                    //{
-                    //    //파일 다운로드 
-                    //    if (sohoUniLib.uniUtil.webFileDownload(util.GetRegistry("server_url") + "/upload/" + temp["FILESTRECOURS"].ToString() + temp["STREFILENM"].ToString(), temp["STREFILENM"].ToString(), mp3_path) == true)
-                    //    {
-                    //        utilXml.xmlNodeUpdate(xml_path + agentConstInfo.xmlFileName, temp["STREFILENM"].ToString(), "Y");
-                    //        downloadNow = "/현재 다운로드" + i + "개";
-                    //    }
-                    //    else
-                    //    {
-                    //        utilXml.xmlNodeUpdate(xml_path + agentConstInfo.xmlFileName, temp["STREFILENM"].ToString(), "N");
-                    //    }
-                    //}
-
+                   
                     this.BeginInvoke(new Action(() =>
                     {
                         lbl_agentInfo.Text = downloadText + downloadNow;
@@ -1258,7 +1243,9 @@ namespace Emart_BrodAgent
 
                     didinfo.centerId= util.GetRegistry("centerId").ToString();
                     //변경부분 
-                    string returnMessage = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe18), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
+                    //xmlMessageTyepe21
+                    //string returnMessage = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe18), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
+                    string returnMessage = sohoUniLib.uniUtil.WebPostDataSend(sohoUniLib.ServerComm_json.sp_JsonString(didinfo, agentConstInfo.xmlMessageTyepe21), util.GetRegistry("server_url") + agentConstInfo.serverJsonUtrl01, agentConstInfo.contentType_01);
                     //다운로드 완료
 
                     JObject json = JObject.Parse(returnMessage);
@@ -1273,7 +1260,7 @@ namespace Emart_BrodAgent
                         for (int i = 0; i < properIDs.Length; i++)
                         {
                             DataRow temp = properIDs[i];
-                            if (utilXml.xmlCreateNodeBasicMusic(xml_path + agentConstInfo.xmlBasicBrodList_New,   temp["STREFILENM"].ToString(), temp["BROD_STARTTIME"].ToString(), temp["BROD_ENDTIME"].ToString(), temp["GROUP_TIMEGUBUN"].ToString(), Convert.ToString(i), temp["BASIC_CODE"].ToString()) == true)
+                            if (utilXml.xmlCreateNodeBasicMusic(xml_path + agentConstInfo.xmlBasicBrodList_New,   temp["STREFILENM"].ToString(), temp["BASIC_STARTTIME"].ToString(), temp["BASIC_ENDTIME"].ToString(), temp["BASIC_TIMEDIV"].ToString(), Convert.ToString(i), temp["BASIC_CODE"].ToString()) == true)
                             {
 
                             }
