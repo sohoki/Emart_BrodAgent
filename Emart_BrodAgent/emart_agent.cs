@@ -88,6 +88,9 @@ namespace Emart_BrodAgent
                 didinfo.didMac = util.GetRegistry("license_info");
                 orderCheck();
             }
+            util.mkdir(send_pathOld);
+            //폴더 생성 
+            //send_pathOld
             //jsonT();
         }
 
