@@ -766,6 +766,10 @@ namespace Emart_BrodAgent
                     pre_mp3PlayTxt = file_Info[1].ToString();
                     PlayFiles(file_Info[0].ToString(), basic_mp3_path, "G");
                 }
+                else
+                {
+                    PlayFiles("emart_basic.mp3", default_path, "E");
+                }
             }
             catch(Exception e)
             {
